@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cc0c811-fe1b-486c-99bc-d00dc4140be0" name="Changes" comment="" />
+    <list default="true" id="2cc0c811-fe1b-486c-99bc-d00dc4140be0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../FrontEnddual/my-app/src/component/thatnghiep.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontEnddual/my-app/src/component/thatnghiep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontEnddual/my-app/src/component/tinhbaohiemxahoi1lan.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontEnddual/my-app/src/component/tinhbaohiemxahoi1lan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontEnddual/my-app/src/styles/baohiem.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontEnddual/my-app/src/styles/baohiem.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontEnddual/my-app/src/utils/router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontEnddual/my-app/src/view/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontEnddual/my-app/src/view/App.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,10 +19,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2fBjFgwGDD0HjKzGE3ihmbUCnFW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -27,6 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Tan/test",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -40,6 +47,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713281266553</updated>
       <workItem from="1713281268241" duration="13000" />
+      <workItem from="1713497969971" duration="26000" />
     </task>
     <servers />
   </component>

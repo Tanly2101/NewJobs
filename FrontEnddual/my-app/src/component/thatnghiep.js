@@ -80,7 +80,6 @@ export default function Thatnghiep() {
         let apply = MonthlySalary;
         let monthlyUnemployment = 5 * BaseSalary; //05
         let MonthlyAllowance = 0.6 * principal; // 08
-
         if (apply > MonthlySalary) {
             return MonthlySalary;
         } else if (MonthlyAllowance > monthlyUnemployment) {
@@ -488,7 +487,7 @@ export default function Thatnghiep() {
                         } else if (formData.n > 36) {
                             let ketqua = formData.n / 12;
                             let roundedNumber = Math.floor(ketqua);
-                            setInherit(` được hưởng ${roundedNumber} tháng BHTN`)
+                            setInherit(` Được hưởng ${roundedNumber} tháng BHTN`)
 
                         }
 

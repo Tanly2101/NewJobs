@@ -1,3 +1,36 @@
-.content {
-    color: #00b14f;
+.table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-second {
+    padding-right: 29px;
+}
+
+.element-table {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.element-table-right input {
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+
+    p {
+        font-size: larger;
+        margin: 0px 40px 0px 0px;
+    }
+
 }
