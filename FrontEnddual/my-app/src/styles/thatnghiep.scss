@@ -1,0 +1,56 @@
+.sixmonth {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px
+}
+
+.deposits-month-1 {
+    padding-top: 15px;
+}
+
+
+
+.month-change-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-calculate {
+    padding: 5px;
+    padding-left: 0px;
+}
+
+.item-calculate input {
+    border: 2px solid #E5E5E5;
+    padding: 10px;
+    // height: 0px;
+}
+
+.principal-that {
+    padding: 10px;
+    padding-left: 0px;
+}
+
+.principal-right-2 input {
+    padding: 10px;
+    border: 2px solid #E5E5E5;
+}
+
+h3#title-mini-1 {
+    background-color: white;
+    color: black;
+}
+
+.deposits-month-1 {
+    background-color: white;
+}
+
+.money-term-1 {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    padding-left: 0px;
+    justify-content: space-between;
+}

@@ -1,0 +1,197 @@
+#tabs {
+  // float: left;
+  width: 100%;
+  background: #F4F7FB;
+  font-size: 93%;
+  line-height: normal;
+  border-bottom: 1px solid #BCD2E6;
+  margin-bottom: 50px;
+}
+
+#tabs ul {
+  margin: 0;
+  padding: 10px 10px 0 50px;
+  list-style: none;
+}
+
+#tabs li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+#tabs a {
+  float: left;
+  margin: 0;
+  padding: 0 0 0 4px;
+  text-decoration: none;
+}
+
+#tabs a span {
+  float: left;
+  display: block;
+  padding: 5px 15px 4px 6px;
+  color: #627EB7;
+  text-decoration: none;
+
+}
+
+
+#tabs a span {
+  float: none;
+}
+
+#tabs a:hover span {
+  color: #627EB7;
+}
+
+#tabs a:hover {
+  background-position: 0% -42px;
+}
+
+#tabs a:hover span {
+  background-position: 100% -42px;
+}
+
+body {
+  margin: 0;
+  background-color: #e5e5e5;
+
+}
+
+#paragraph {
+  max-width: 1170px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+  border: 2px solid rgb(241, 237, 237);
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+
+
+
+  h3 {
+    background-color: #00b14f;
+    color: white;
+    margin: 0;
+  }
+}
+
+.principal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  justify-content: space-between;
+  background-color: #e7ecf0;
+}
+
+.deposits-month {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 15px;
+  padding-right: 15px;
+  justify-content: space-between;
+  background-color: #e7ecf0;
+}
+
+.sending-time {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 15px;
+  padding-right: 15px;
+  justify-content: space-between;
+  background-color: #e7ecf0;
+}
+
+.interest {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  justify-content: space-between;
+  background-color: #e7ecf0;
+}
+
+.money-term {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  justify-content: space-between;
+  background-color: #e7ecf0;
+}
+
+.principal-right {
+  input {
+    border: 2px solid #E5E5E5;
+    padding: 10px;
+  }
+
+}
+
+.title-max {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.title-min {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.calculation-button {
+  display: flex;
+  justify-content: space-evenly;
+
+
+
+  button {
+    border: 2px solid #00b14f;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #F4F7FB;
+    background-color: #00b14f;
+    // margin-left: 530px;
+    // margin-right: 530px;
+    align-items: center;
+
+  }
+}
+
+.title {
+
+  h2 {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.form-control-select2 {
+  border: 2px solid rgb(19, 18, 18);
+  padding: 20px;
+  padding-right: 91.5px;
+  border-radius: 10px;
+
+  option {
+    align-items: center;
+  }
+}
+
+.Giatrihienthi {
+  text-align: center;
+  margin: auto;
+  font-size: 25px;
+}
+
+.highlight {
+  color: #00b14f;
+  font-weight: bold;
+}
