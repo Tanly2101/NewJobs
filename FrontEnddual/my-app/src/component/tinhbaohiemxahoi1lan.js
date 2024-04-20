@@ -19,26 +19,24 @@ export default function Tinhbaohiemxahoi1lan() {
             [name]: value
         }));
     };
+    const [selectedCategory, setSelectedCategory] = useState('1');
 
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+    };
     const getFormData = (event) => {
         event.preventDefault();
         console.log(formData)
     }
-    // function tinhSoNamVaThang(thangBatDau, namBatDau, thangKetThuc, namKetThuc) {
-    //     if (namKetThuc < namBatDau || (namKetThuc === namBatDau && thangKetThuc <= thangBatDau)) {
-    //         return { soNam: 0, soThang: 0 }; // Trả về 0 năm và 0 tháng nếu không thỏa mãn điều kiện
-    //     }
-    //     var soNam = namKetThuc - namBatDau;
-    //     var soThang = (thangKetThuc - thangBatDau) + 1;
+    const buttons = document.querySelectorAll('.button');
 
-    //     if (soThang < 0) {
-    //         soNam--;
-    //         soThang += 12;
-    //     }
-    //     // Thêm một điều kiện nữa để kiểm tra xem số tháng có bằng 0 hay không
+    buttons.forEach(button => {
+        button.addEventListener('focus', function () {
+            buttons.forEach(btn => btn.classList.remove('focused'));
+            this.classList.add('focused');
+        });
+    });
 
-    //     return { soNam: soNam, soThang: soThang };
-    // }
     function tinhSoNamVaThang(thangBatDau, namBatDau, thangKetThuc, namKetThuc) {
         var ketQua = [];
 
@@ -142,7 +140,8 @@ export default function Tinhbaohiemxahoi1lan() {
                 tong += formData.Wage * thang * 1;
             }
         });
-        console.log(tong / tongthang);
+        let TBBHXH = tong / tongthang
+        console.log(TBBHXH.toFixed(0));
         console.log(ketQua);
     }
     // Hàm xử lý sự kiện thay đổi trên các select
@@ -164,143 +163,289 @@ export default function Tinhbaohiemxahoi1lan() {
                 </div>
                 <div className='navbar'>
                     <div>
-                        <p>BHXH bắt buộc</p>
+                        <button className='button' name='obligatory' value="1" checked={selectedCategory === '1'}
+                            onClick={() => handleCategoryClick('1')} >BHXH bắt buộc</button>
                     </div>
                     <div>
-                        <p>BHXH tự nguyện</p>
+                        <button className='button' name='Voluntary' value="2" checked={selectedCategory === '2'} onClick={() => handleCategoryClick('2')} >BHXH tự nguyện</button>
                     </div>
                 </div>
-                <div className='navbar-title'>
-                    <div >
-                        <p>Giai đoạn nộp BHXH</p>
-                    </div>
-                    <div className='title-second' >
-                        <p>Mức lương đóng BHXH</p>
-                    </div>
-                </div>
-                <div >
-                    <div className='table'>
-                        <div>
-                            <select name="giatri" id="thangBatDau" className="form-control-select2" onChange={handleChange} value={formData.giatri}>
-                                <option>--Chọn--</option>
-                                <option value="1" >1</option>
-                                <option value="2" >2</option>
-                                <option value="3" >3</option>
-                                <option value="4" >4</option>
-                                <option value="5" >5</option>
-                                <option value="6" >6</option>
-                                <option value="7" >7</option>
-                                <option value="8" >8</option>
-                                <option value="9" >9</option>
-                                <option value="10" >10</option>
-                                <option value="11" >11</option>
-                                <option value="12" >12</option>
-                            </select>
-                        </div>
-                        <div>
-                            <select name="giatri1" id="namBatDau" className="form-control-select2" onChange={handleChange} >
-                                <option>--Chọn--</option>
-                                <option value="2024" >2024</option>
-                                <option value="2023" >2023</option>
-                                <option value="2022" >2022</option>
-                                <option value="2021" >2021</option>
-                                <option value="2020" >2020</option>
-                                <option value="2019" >2019</option>
-                                <option value="2018" >2018</option>
-                                <option value="2017" >2017</option>
-                                <option value="2016" >2016</option>
-                                <option value="2015" >2015</option>
-                                <option value="2014" >2014</option>
-                                <option value="2013" >2013</option>
-                                <option value="2012" >2012</option>
-                                <option value="2011" >2011</option>
-                                <option value="2010" >2010</option>
-                                <option value="2009" >2009</option>
-                                <option value="2008" >2008</option>
-                                <option value="2007" >2007</option>
-                                <option value="2006" >2006</option>
-                                <option value="2005" >2005</option>
-                                <option value="2004" >2004</option>
-                                <option value="2003" >2003</option>
-                                <option value="2002" >2002</option>
-                                <option value="2001" >2001</option>
-                                <option value="2000" >2000</option>
-                                <option value="1999" >1999</option>
-                                <option value="1998" >1998</option>
-                                <option value="1997" >1997</option>
-                                <option value="1996" >1996</option>
-                                <option value="1995" >1995</option>
-                                <option value="1994" >1994</option>
-                            </select>
-                        </div>
-                        <div>
-                            <p>Đến</p>
-                        </div>
-                        <div>
-                            <select name="giatri0" id="thangKetThuc" className="form-control-select2" onChange={handleChange} >
-                                <option>--Chọn--</option>
-                                <option value="1" >1</option>
-                                <option value="2" >2</option>
-                                <option value="3" >3</option>
-                                <option value="4" >4</option>
-                                <option value="5" >5</option>
-                                <option value="6" >6</option>
-                                <option value="7" >7</option>
-                                <option value="8" >8</option>
-                                <option value="9" >9</option>
-                                <option value="10" >10</option>
-                                <option value="11" >11</option>
-                                <option value="12" >12</option>
-                            </select>
-                        </div>
-                        <div>
-                            <select name="giatri2" id="namKetThuc" className="form-control-select2" onChange={handleChange} >
-                                <option>--Chọn--</option>
-                                <option value="2024" >2024</option>
-                                <option value="2023" >2023</option>
-                                <option value="2022" >2022</option>
-                                <option value="2021" >2021</option>
-                                <option value="2020" >2020</option>
-                                <option value="2019" >2019</option>
-                                <option value="2018" >2018</option>
-                                <option value="2017" >2017</option>
-                                <option value="2016" >2016</option>
-                                <option value="2015" >2015</option>
-                                <option value="2014" >2014</option>
-                                <option value="2013" >2013</option>
-                                <option value="2012" >2012</option>
-                                <option value="2011" >2011</option>
-                                <option value="2010" >2010</option>
-                                <option value="2009" >2009</option>
-                                <option value="2008" >2008</option>
-                                <option value="2007" >2007</option>
-                                <option value="2006" >2006</option>
-                                <option value="2005" >2005</option>
-                                <option value="2004" >2004</option>
-                                <option value="2003" >2003</option>
-                                <option value="2002" >2002</option>
-                                <option value="2001" >2001</option>
-                                <option value="2000" >2000</option>
-                                <option value="1999" >1999</option>
-                                <option value="1998" >1998</option>
-                                <option value="1997" >1997</option>
-                                <option value="1996" >1996</option>
-                                <option value="1995" >1995</option>
-                                <option value="1994" >1994</option>
-                            </select>
 
+                {selectedCategory === '1' && (
+
+                    <div>
+                        <div className='navbar-title'>
+                            <div >
+                                <p>Giai đoạn nộp BHXH</p>
+                            </div>
+                            <div className='title-second' >
+                                <p>Mức lương đóng BHXH</p>
+                            </div>
                         </div>
-                        <div className='element-table'>
-                            <div className='element-table-right'>
-                                <label>
-                                    <input value={formData.Wage} onChange={handleChange} placeholder="VD : 10,000,000" name="Wage" />
-                                </label>
+                        <div className='table'>
+                            <div>
+                                <select name="giatri" id="thangBatDau" className="form-control-select2" onChange={handleChange} value={formData.giatri}>
+                                    <option>--Chọn--</option>
+                                    <option value="1" >1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    <option value="6" >6</option>
+                                    <option value="7" >7</option>
+                                    <option value="8" >8</option>
+                                    <option value="9" >9</option>
+                                    <option value="10" >10</option>
+                                    <option value="11" >11</option>
+                                    <option value="12" >12</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select name="giatri1" id="namBatDau" className="form-control-select2" onChange={handleChange} >
+                                    <option>--Chọn--</option>
+                                    <option value="2024" >2024</option>
+                                    <option value="2023" >2023</option>
+                                    <option value="2022" >2022</option>
+                                    <option value="2021" >2021</option>
+                                    <option value="2020" >2020</option>
+                                    <option value="2019" >2019</option>
+                                    <option value="2018" >2018</option>
+                                    <option value="2017" >2017</option>
+                                    <option value="2016" >2016</option>
+                                    <option value="2015" >2015</option>
+                                    <option value="2014" >2014</option>
+                                    <option value="2013" >2013</option>
+                                    <option value="2012" >2012</option>
+                                    <option value="2011" >2011</option>
+                                    <option value="2010" >2010</option>
+                                    <option value="2009" >2009</option>
+                                    <option value="2008" >2008</option>
+                                    <option value="2007" >2007</option>
+                                    <option value="2006" >2006</option>
+                                    <option value="2005" >2005</option>
+                                    <option value="2004" >2004</option>
+                                    <option value="2003" >2003</option>
+                                    <option value="2002" >2002</option>
+                                    <option value="2001" >2001</option>
+                                    <option value="2000" >2000</option>
+                                    <option value="1999" >1999</option>
+                                    <option value="1998" >1998</option>
+                                    <option value="1997" >1997</option>
+                                    <option value="1996" >1996</option>
+                                    <option value="1995" >1995</option>
+                                    <option value="1994" >1994</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p>Đến</p>
+                            </div>
+                            <div>
+                                <select name="giatri0" id="thangKetThuc" className="form-control-select2" onChange={handleChange} >
+                                    <option>--Chọn--</option>
+                                    <option value="1" >1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    <option value="6" >6</option>
+                                    <option value="7" >7</option>
+                                    <option value="8" >8</option>
+                                    <option value="9" >9</option>
+                                    <option value="10" >10</option>
+                                    <option value="11" >11</option>
+                                    <option value="12" >12</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select name="giatri2" id="namKetThuc" className="form-control-select2" onChange={handleChange} >
+                                    <option>--Chọn--</option>
+                                    <option value="2024" >2024</option>
+                                    <option value="2023" >2023</option>
+                                    <option value="2022" >2022</option>
+                                    <option value="2021" >2021</option>
+                                    <option value="2020" >2020</option>
+                                    <option value="2019" >2019</option>
+                                    <option value="2018" >2018</option>
+                                    <option value="2017" >2017</option>
+                                    <option value="2016" >2016</option>
+                                    <option value="2015" >2015</option>
+                                    <option value="2014" >2014</option>
+                                    <option value="2013" >2013</option>
+                                    <option value="2012" >2012</option>
+                                    <option value="2011" >2011</option>
+                                    <option value="2010" >2010</option>
+                                    <option value="2009" >2009</option>
+                                    <option value="2008" >2008</option>
+                                    <option value="2007" >2007</option>
+                                    <option value="2006" >2006</option>
+                                    <option value="2005" >2005</option>
+                                    <option value="2004" >2004</option>
+                                    <option value="2003" >2003</option>
+                                    <option value="2002" >2002</option>
+                                    <option value="2001" >2001</option>
+                                    <option value="2000" >2000</option>
+                                    <option value="1999" >1999</option>
+                                    <option value="1998" >1998</option>
+                                    <option value="1997" >1997</option>
+                                    <option value="1996" >1996</option>
+                                    <option value="1995" >1995</option>
+                                    <option value="1994" >1994</option>
+                                </select>
+
+                            </div>
+                            <div className='element-table'>
+                                <div className='element-table-right'>
+                                    <label>
+                                        <input value={formData.Wage} onChange={handleChange} placeholder="VD : 10,000,000" name="Wage" />
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
+                )}
+                {selectedCategory === '2' && (
+                    <div>
 
-                </div>
+                        <div className='navbar-title'>
+                            <div className='title-first'>
+                                <p>Giai đoạn nộp BHXH</p>
+                            </div>
+                            <div className='title-second' >
+                                <p>Mức lương đóng BHXH</p>
+                            </div>
+                            <div className='title-thirt' >
+                                <p>Đối tượng tham gia</p>
+                            </div>
+                        </div>
+                        <div className='table'>
+                            <div>
+                                <select name="giatri" id="thangBatDau" className="form-control-select2" onChange={handleChange} value={formData.giatri}>
+                                    <option>--Chọn--</option>
+                                    <option value="1" >1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    <option value="6" >6</option>
+                                    <option value="7" >7</option>
+                                    <option value="8" >8</option>
+                                    <option value="9" >9</option>
+                                    <option value="10" >10</option>
+                                    <option value="11" >11</option>
+                                    <option value="12" >12</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select name="giatri1" id="namBatDau" className="form-control-select2" onChange={handleChange} >
+                                    <option>--Chọn--</option>
+                                    <option value="2024" >2024</option>
+                                    <option value="2023" >2023</option>
+                                    <option value="2022" >2022</option>
+                                    <option value="2021" >2021</option>
+                                    <option value="2020" >2020</option>
+                                    <option value="2019" >2019</option>
+                                    <option value="2018" >2018</option>
+                                    <option value="2017" >2017</option>
+                                    <option value="2016" >2016</option>
+                                    <option value="2015" >2015</option>
+                                    <option value="2014" >2014</option>
+                                    <option value="2013" >2013</option>
+                                    <option value="2012" >2012</option>
+                                    <option value="2011" >2011</option>
+                                    <option value="2010" >2010</option>
+                                    <option value="2009" >2009</option>
+                                    <option value="2008" >2008</option>
+                                    <option value="2007" >2007</option>
+                                    <option value="2006" >2006</option>
+                                    <option value="2005" >2005</option>
+                                    <option value="2004" >2004</option>
+                                    <option value="2003" >2003</option>
+                                    <option value="2002" >2002</option>
+                                    <option value="2001" >2001</option>
+                                    <option value="2000" >2000</option>
+                                    <option value="1999" >1999</option>
+                                    <option value="1998" >1998</option>
+                                    <option value="1997" >1997</option>
+                                    <option value="1996" >1996</option>
+                                    <option value="1995" >1995</option>
+                                    <option value="1994" >1994</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p>Đến</p>
+                            </div>
+                            <div>
+                                <select name="giatri0" id="thangKetThuc" className="form-control-select2" onChange={handleChange} >
+                                    <option>--Chọn--</option>
+                                    <option value="1" >1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    <option value="6" >6</option>
+                                    <option value="7" >7</option>
+                                    <option value="8" >8</option>
+                                    <option value="9" >9</option>
+                                    <option value="10" >10</option>
+                                    <option value="11" >11</option>
+                                    <option value="12" >12</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select name="giatri2" id="namKetThuc" className="form-control-select2" onChange={handleChange} >
+                                    <option>--Chọn--</option>
+                                    <option value="2024" >2024</option>
+                                    <option value="2023" >2023</option>
+                                    <option value="2022" >2022</option>
+                                    <option value="2021" >2021</option>
+                                    <option value="2020" >2020</option>
+                                    <option value="2019" >2019</option>
+                                    <option value="2018" >2018</option>
+                                    <option value="2017" >2017</option>
+                                    <option value="2016" >2016</option>
+                                    <option value="2015" >2015</option>
+                                    <option value="2014" >2014</option>
+                                    <option value="2013" >2013</option>
+                                    <option value="2012" >2012</option>
+                                    <option value="2011" >2011</option>
+                                    <option value="2010" >2010</option>
+                                    <option value="2009" >2009</option>
+                                    <option value="2008" >2008</option>
+                                    <option value="2007" >2007</option>
+                                    <option value="2006" >2006</option>
+                                    <option value="2005" >2005</option>
+                                    <option value="2004" >2004</option>
+                                    <option value="2003" >2003</option>
+                                    <option value="2002" >2002</option>
+                                    <option value="2001" >2001</option>
+                                    <option value="2000" >2000</option>
+                                    <option value="1999" >1999</option>
+                                    <option value="1998" >1998</option>
+                                    <option value="1997" >1997</option>
+                                    <option value="1996" >1996</option>
+                                    <option value="1995" >1995</option>
+                                    <option value="1994" >1994</option>
+                                </select>
 
+                            </div>
+                            <div className='element-table'>
+                                <div className='element-table-right'>
+                                    <label>
+                                        <input value={formData.Wage} onChange={handleChange} placeholder="VD : 10,000,000" name="Wage" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <select className="form-control-select2" onChange={handleChange} >
+                                    <option>--Chọn--</option>
+                                    <option value="hongheo" >Hộ Nghèo</option>
+                                    <option value="hocanngheo" >Hộ Cận Nghèo</option>
+                                    <option value="doituongkhac">Đối Tượng Khác</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                )}
                 <div className='calculation-button'>
                     <button type='submit' id="tinhButton"
                         onClick={(event) => {

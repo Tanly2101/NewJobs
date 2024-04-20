@@ -10,8 +10,13 @@
 }
 
 .title-second {
-    padding-right: 29px;
+    width: 186px;
 }
+
+.title-first p {
+    width: 747px;
+}
+
 
 .element-table {
     display: flex;
@@ -28,9 +33,53 @@
 .navbar {
     display: flex;
 
-    p {
+    button {
         font-size: larger;
         margin: 0px 40px 0px 0px;
     }
 
+}
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Gạch dưới mặc định */
+.button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transform: scaleX(0);
+    /* Mặc định không hiển thị */
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.button:hover::after {
+    transform: scaleX(1);
+    /* Hiển thị gạch dưới khi hover */
+}
+
+.button:target {
+    color: #ff0000;
+}
+
+.focused {
+    color: #ff0000;
+}
+
+.title-thirt p {
+    width: 224px;
 }

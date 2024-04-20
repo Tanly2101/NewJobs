@@ -281,8 +281,7 @@ export default function Thatnghiep() {
                         </label>
                     </div>
                     <div>
-                        <input className='chedothay' type="radio" name="che-do-tinh-thay-doi" value="2" checked={selectedCategory === '2'}
-                            onChange={() => handleCategoryClick('2')} />
+                        <input className='chedothay' type="radio" name="che-do-tinh-thay-doi" value="2" checked={selectedCategory === '2'} onChange={() => handleCategoryClick('2')} />
                         <label>Lương đóng BH thay đổi trong 6 tháng</label>
                     </div>
                 </div>
