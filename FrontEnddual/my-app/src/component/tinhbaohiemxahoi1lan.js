@@ -76,80 +76,107 @@ export default function Tinhbaohiemxahoi1lan() {
         ketQua.forEach(function (item) {
             let thang = (item.thangKetThuc - item.thangBatDau) + 1;
             tongthang += thang;
-            if (item.namKetThuc === 1994) {
-                tong += formData.Wage * thang * 5.43;
-            } else if (item.namKetThuc === 1995) {
-                tong += formData.Wage * thang * 4.61;
-            } else if (item.namKetThuc === 1996) {
-                tong += formData.Wage * thang * 4.36;
-            } else if (item.namKetThuc === 1997) {
-                tong += formData.Wage * thang * 4.22;
-            } else if (item.namKetThuc === 1998) {
-                tong += formData.Wage * thang * 3.92;
-            } else if (item.namKetThuc === 1999) {
-                tong += formData.Wage * thang * 3.75;
-            } else if (item.namKetThuc === 2000) {
-                tong += formData.Wage * thang * 3.82;
-            } else if (item.namKetThuc === 2001) {
-                tong += formData.Wage * thang * 3.83;
-            } else if (item.namKetThuc === 2002) {
-                tong += formData.Wage * thang * 3.68;
-            } else if (item.namKetThuc === 2003) {
-                tong += formData.Wage * thang * 3.57;
-            } else if (item.namKetThuc === 2004) {
-                tong += formData.Wage * thang * 3.31;
-            } else if (item.namKetThuc === 2005) {
-                tong += formData.Wage * thang * 3.06;
-            } else if (item.namKetThuc === 2006) {
-                tong += formData.Wage * thang * 2.85;
-            } else if (item.namKetThuc === 2007) {
-                tong += formData.Wage * thang * 2.63;
-            } else if (item.namKetThuc === 2008) {
-                tong += formData.Wage * thang * 2.14;
-            } else if (item.namKetThuc === 2009) {
-                tong += formData.Wage * thang * 2;
-            } else if (item.namKetThuc === 2010) {
-                tong += formData.Wage * thang * 1.83;
-            } else if (item.namKetThuc === 2011) {
-                tong += formData.Wage * thang * 1.54;
-            } else if (item.namKetThuc === 2012) {
-                tong += formData.Wage * thang * 1.41;
-            } else if (item.namKetThuc === 2013) {
-                tong += formData.Wage * thang * 1.33;
-            } else if (item.namKetThuc === 2014) {
-                tong += formData.Wage * thang * 1.27;
-            } else if (item.namKetThuc === 2015) {
-                tong += formData.Wage * thang * 1.27;
-            } else if (item.namKetThuc === 2016) {
-                tong += formData.Wage * thang * 1.23;
-            } else if (item.namKetThuc === 2017) {
-                tong += formData.Wage * thang * 1.19;
-            } else if (item.namKetThuc === 2018) {
-                tong += formData.Wage * thang * 1.15;
-            } else if (item.namKetThuc === 2019) {
-                tong += formData.Wage * thang * 1.12;
-            } else if (item.namKetThuc === 2020) {
-                tong += formData.Wage * thang * 1.08;
-            } else if (item.namKetThuc === 2021) {
-                tong += formData.Wage * thang * 1.07;
-            } else if (item.namKetThuc === 2022) {
-                tong += formData.Wage * thang * 1.03;
-            } else if (item.namKetThuc === 2023) {
-                tong += formData.Wage * thang * 1;
-            } else if (item.namKetThuc === 2024) {
-                tong += formData.Wage * thang * 1;
+            var heSo = {
+                1994: 5.43, 1995: 4.61, 1996: 4.36, 1997: 4.22, 1998: 3.92, 1999: 3.75, 2000: 3.82, 2001: 3.83,
+                2002: 3.68, 2003: 3.57, 2004: 3.31, 2005: 3.06, 2006: 2.85,
+                2007: 2.63, 2008: 2.14, 2009: 2, 2010: 1.83,
+                2011: 1.54, 2012: 1.41, 2013: 1.33, 2014: 1.27, 2015: 1.27, 2016: 1.23,
+                2017: 1.19, 2018: 1.15, 2019: 1.12, 2020: 1.08, 2021: 1.07, 2022: 1.03, 2023: 1, 2024: 1
+            };
+
+            // Kiểm tra xem có hệ số nào phù hợp với giá trị item.namKetThuc không
+            if (heSo.hasOwnProperty(item.namKetThuc)) {
+                tong += formData.Wage * thang * heSo[item.namKetThuc];
+            } else {
+                // Xử lý khi không có hệ số phù hợp
+                console.log("Không tìm thấy hệ số cho năm " + item.namKetThuc);
             }
+
         });
+
         let TBBHXH = tong / tongthang
         console.log(TBBHXH.toFixed(0));
         console.log(ketQua);
+
+        console.log(TinhKetQuaBHXH(TBBHXH, tong, thangBatDau, namBatDau, thangKetThuc, namKetThuc))
     }
     // Hàm xử lý sự kiện thay đổi trên các select
+    function tinhTongSoNamVaThang(thangBatDau, namBatDau, thangKetThuc, namKetThuc) {
+        var soNam = namKetThuc - namBatDau;
+        var soThang = (thangKetThuc - thangBatDau) + 1;
+
+        if (soThang < 0) {
+            soNam--;
+            soThang += 12;
+        }
+
+        return { soNam: soNam, soThang: soThang };
+    }
+    function TinhKetQuaBHXH(TBBHXH, tong, thangBatDau, namBatDau, thangKetThuc, namKetThuc) {
+        // const giatritruoc2014 = tinhTongSoNamVaThang(thangBatDau, namBatDau, thangKetThuc, namKetThuc);
+        // const giatrisau2014 = tinhTongSoNamVaThang(thangBatDau, namBatDau, thangKetThuc, namKetThuc)
+        if (namBatDau < 2014 && namKetThuc >= 2014) {
+            const giatritruoc2014 = tinhTongSoNamVaThang(thangBatDau, namBatDau, 1, 2014);
+            const giatrisau2014 = tinhTongSoNamVaThang(1, 2014, thangKetThuc, namKetThuc)
+            console.log(giatrisau2014);
+            console.log(giatritruoc2014);
+            if (giatrisau2014.soThang > 7) {
+                giatrisau2014.soNam = giatrisau2014.soNam + 1 + 1;
+            } else {
+                giatrisau2014.soNam = giatrisau2014.soNam + 1 + 0.5
+            }
+            if (giatritruoc2014.soThang > 7) {
+                giatritruoc2014.soNam = giatritruoc2014.soNam - 1 + 1;
+            } else {
+                giatritruoc2014.soNam = giatritruoc2014.soNam - 1 + 0.5
+            }
+            let ketQua = (1.5 * TBBHXH * giatritruoc2014.soNam) + (2 * TBBHXH * giatrisau2014.soNam);
+            return ketQua;
+        } else if (namBatDau < 2014) {
+            const giatritruoc2014 = tinhTongSoNamVaThang(thangBatDau, namBatDau, thangKetThuc, namKetThuc);
+            console.log(giatritruoc2014);
+            if (giatritruoc2014.soThang > 7) {
+                giatritruoc2014.soThang = 1;
+            } else {
+                giatritruoc2014.soThang = 0.5;
+            }
+            // Tính mức hưởng BHXH một lần trước năm 2014
+            let mucHuongTruoc2014 = 1.5 * TBBHXH * giatritruoc2014.soNam;
+
+            if (giatritruoc2014.soThang === 1) {
+                let mucHuongSau2014nguyen = 2 * TBBHXH * 1;
+                let ketQua2 = mucHuongTruoc2014 + mucHuongSau2014nguyen;
+                return ketQua2;
+
+            } else if (giatritruoc2014.soThang === 0.5) {
+                let mucHuongSau2014khong = 2 * TBBHXH * 0.5;
+                let ketQua4 = mucHuongTruoc2014 + mucHuongSau2014khong;
+                return ketQua4;
+            }
+
+        } else if (namBatDau > 2014) {
+            const giatrisau2014 = tinhTongSoNamVaThang(thangBatDau, namBatDau, thangKetThuc, namKetThuc)
+            console.log(giatrisau2014);
+            if (giatrisau2014.soThang > 7) {
+                giatrisau2014.soNam = giatrisau2014.soNam + 1;
+            } else {
+                giatrisau2014.soNam = giatrisau2014.soNam + 0.5;
+            }
+            let ketQua1 = (2 * TBBHXH * giatrisau2014.soNam);
+            return ketQua1;
+        }
+        // else if(giatrisau2014.soNam <= 1 || giatritruoc2014.soNam <= 1 ){
+
+        //     let ketQua3 =  0.22 *  tong ;
+
+        //     return ketQua3;
+        // }
+    }
 
 
-    // Sử dụng hàm
 
-    // Lắng nghe sự kiện thay đổi trên các select
+
+
 
 
 
@@ -449,7 +476,8 @@ export default function Tinhbaohiemxahoi1lan() {
                 <div className='calculation-button'>
                     <button type='submit' id="tinhButton"
                         onClick={(event) => {
-                            xuLySuKienClick(event);
+                            xuLySuKienClick(event)
+
                         }}
                     >
                         Tính bảo hiểm xã hội
